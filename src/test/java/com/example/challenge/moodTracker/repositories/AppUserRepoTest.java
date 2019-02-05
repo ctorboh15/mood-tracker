@@ -11,13 +11,13 @@ import javax.validation.ConstraintViolationException;
 import java.util.List;
 
 
-public class AppUserRepoTestClass extends BaseModelTestClass<AppUser, AppUserRepository> {
+public class AppUserRepoTest extends BaseModelTestClass<AppUser, AppUserRepository> {
 
     @Autowired protected AppUserRepository appUserRepository;
 
-    protected String APP_USER_USERNAME = "AppUserName1";
-    protected String APP_USER_PASSWORD = "Password";
-    protected String APP_USER_EMAIL = "email@email.com";
+    public static final String APP_USER_USERNAME = "AppUserName1";
+    protected static final String APP_USER_PASSWORD = "Password";
+    protected static final String APP_USER_EMAIL = "email@email.com";
 
 
     @Override
@@ -69,8 +69,6 @@ public class AppUserRepoTestClass extends BaseModelTestClass<AppUser, AppUserRep
 
     @Test
     public void testFindAllByOrderMoodEntryStreakDesc(){
-        String PLUS_ONE_APPENDER = "-1";
-        String PLUS_TWO_APPENDER = "-2";
 
         saveEntity(createAppUser(APP_USER_USERNAME,APP_USER_PASSWORD, APP_USER_EMAIL, 4));
         saveEntity(createAppUser(APP_USER_USERNAME + PLUS_ONE_APPENDER ,APP_USER_PASSWORD + PLUS_ONE_APPENDER, APP_USER_EMAIL + PLUS_ONE_APPENDER, 6));
@@ -86,7 +84,7 @@ public class AppUserRepoTestClass extends BaseModelTestClass<AppUser, AppUserRep
 
     ////////////////////////////// Helpers //////////////////////////////////
 
-    protected AppUser createAppUser(String username, String password, String email){
+    public static AppUser createAppUser(String username, String password, String email){
         return new AppUser(username, email, password);
     }
 

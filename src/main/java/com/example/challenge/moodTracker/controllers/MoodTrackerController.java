@@ -25,7 +25,7 @@ public class MoodTrackerController {
 
     @PostMapping
     public ResponseEntity createNewRecord(@RequestBody MoodEntryApiObject moodEntryApiObject, HttpServletRequest request) {
-        moodEntryHandler.doMoodEntry(moodEntryApiObject, (AppUser) request.getAttribute(Constants.JWT_USER_HEADER));
+            moodEntryHandler.doMoodEntry(moodEntryApiObject, (AppUser) request.getAttribute(Constants.JWT_USER_HEADER));
         return new ResponseEntity("Mood Entry Created Successfully", HttpStatus.CREATED);
     }
 

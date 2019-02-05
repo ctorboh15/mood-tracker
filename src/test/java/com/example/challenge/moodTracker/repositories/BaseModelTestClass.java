@@ -12,6 +12,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 @DataJpaTest
 public abstract class BaseModelTestClass<M extends AbstractModel, R extends JpaRepository> {
 
+    protected String PLUS_ONE_APPENDER = "-1";
+    protected String PLUS_TWO_APPENDER = "-2";
     @Before
     public void before(){
         clearRepository();

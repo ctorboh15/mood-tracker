@@ -21,7 +21,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public final ResponseEntity<?> handleAllExceptions(Exception ex, WebRequest request) {
-        return buildResponseError(new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, ex), request);
+        return buildResponseError(new ApiError(HttpStatus.INTERNAL_SERVER_ERROR), request);
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
